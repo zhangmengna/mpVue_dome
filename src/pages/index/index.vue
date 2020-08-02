@@ -1,127 +1,83 @@
 <template>
-  <div @click="clickHandle">
-
-    <div class="userinfo" @click="bindViewTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
-      <img class="userinfo-avatar" src="/static/images/user.png" background-size="cover" />
-
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
-      </div>
-    </div>
-
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
-
-    <form class="form-container">
-      <input type="text" class="form-control" :value="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model="motto1" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto1" placeholder="v-model.lazy" />
-    </form>
-
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
-
-    <div class="all">
-        <div class="left">
-        </div>
-        <div class="right">
+    <div class="container">
+        <img v-if="isShow" class="userImage" :src="userInfo.avatarUrl" alt="">
+        <button v-else class="btn" open-type='getUserInfo' @getuserinfo ='getUserInfo'>授权用户信息</button>
+        <p class="userName">Hello {{userInfo.nickName}}</p>
+        <div class="goDetail">
+            <p>开始小程序之旅</p>           
         </div>
     </div>
-  </div>
+    
 </template>
-
 <script>
-import card from '@/components/card'
-
-export default {
-  data () {
-    return {
-      motto: 'Hello miniprograme',
-      motto1: '111111',
-      userInfo: {
-        nickName: 'mpvue',
-        avatarUrl: 'http://mpvue.com/assets/logo.png'
-      }
+    export default{
+        data(){
+            return{
+                userInfo:{},
+                isShow:false,//用户没有授权
+            }
+        },
+        beforeMount(){
+            console.log('....beforeMount....')
+            //获取用户信息
+            this.handleGetUserInfo()
+        },
+        methods: {
+            handleGetUserInfo(){
+                wx.getUserInfo({
+                    success: (data) => {
+                        console.log('获取信息成功',data)
+                        this.userInfo = data.userInfo
+                        this.isShow = true
+                    },
+                    fail: (data) => {
+                        console.log('获取信息失败',data)
+                    }
+                })
+            },
+            getUserInfo(data){
+                console.log('getUserInfo',data)
+                //用户是否授权
+                if(data.mp.detail.userInfo){
+                    //授权
+                    this.handleGetUserInfo()
+                }
+            }
+        }
     }
-  },
+    
 
-  components: {
-    card
-  },
-
-  methods: {
-    bindViewTap () {
-      const url = '../logs/main'
-      if (mpvuePlatform === 'wx') {
-        mpvue.switchTab({ url })
-      } else {
-        mpvue.navigateTo({ url })
-      }
-    },
-    clickHandle (ev) {
-      console.log('clickHandle:', ev)
-      // throw {message: 'custom test'}
-    }
-  },
-
-  created () {
-    // let app = getApp()
-  }
-}
 </script>
+<style scropd>
+    page{
+        background-Color: #39f158;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .userImage{
+        width: 200rpx;
+        height: 200rpx;
+        border-radius: 50%;
+        margin: 100rpx 0;
+    }
+    .btn{
+        margin: 100rpx 0;
+    }
+    .userName{
+        font-size: 40rpx;
+        font-weight: bold;
 
-<style scoped>
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 150px;
-}
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-.all{
-  width:7.5rem;
-  height:1rem;
-  background-color:blue;
-}
-.all:after{
-  display:block;
-  content:'';
-  clear:both;
-}
-.left{
-  float:left;
-  width:3rem;
-  height:1rem;
-  background-color:red;
-}
-
-.right{
-  float:left;
-  width:4.5rem;
-  height:1rem;
-  background-color:green;
-}
+    }
+    .goDetail{
+        width: 300rpx;
+        margin: 100rpx auto;
+        font-size: 30rpx;
+        padding: 20rpx;
+        text-align: center;
+        border: 1rpx solid #ffffff;
+        border-radius: 10rpx;
+    }
 </style>

@@ -39,3 +39,16 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+#第一天 首页 用户的授权及信息的获取
+1.每个vue页面必须配置一个js文件，将vue文件挂载
+  import Vue from 'vue'
+ import Index from './index.vue'
+
+ const index = new Vue(Index)
+ index.$mount()
+
+ 2.mpvue中及支持vue的生命周期也支持小程序的生命周期，但在项目中尽量使用vue的生命周期和方法
+
+
+ 
