@@ -40,7 +40,8 @@ npm run build --report
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-#第一天 首页 用户的授权及信息的获取
+#src-dome为脚手架初始化创建的文件
+##第一天 首页 用户的授权及信息的获取
 1.每个vue页面必须配置一个js文件，将vue文件挂载
   import Vue from 'vue'
  import Index from './index.vue'
@@ -49,6 +50,18 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
  index.$mount()
 
  2.mpvue中及支持vue的生命周期也支持小程序的生命周期，但在项目中尽量使用vue的生命周期和方法
+
+ ##原生小程序中
+   bind + tap 冒泡事件
+   catch + tap 非冒泡事件
+
+#第二天：列表页面
+
+##注意switchTab只能跳转到带有tab的页面，
+  不能跳转到不带tab的页面,
+ 跳转不带tab的页面还是用redirectTo或者navigateTo
+ 
+ 作为组件时候需要学main.js 但不需要挂载
 
 
  

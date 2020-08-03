@@ -3,7 +3,7 @@
         <img v-if="isShow" class="userImage" :src="userInfo.avatarUrl" alt="">
         <button v-else class="btn" open-type='getUserInfo' @getuserinfo ='getUserInfo'>授权用户信息</button>
         <p class="userName">Hello {{userInfo.nickName}}</p>
-        <div class="goDetail">
+        <div @tap="toDetail" class="goDetail">
             <p>开始小程序之旅</p>           
         </div>
     </div>
@@ -42,8 +42,15 @@
                     //授权
                     this.handleGetUserInfo()
                 }
+            },
+            toDetail(){
+                console.log('toDetail')
+                wx.navigateTo({
+                    url:'/pages/list/main'
+                })
             }
         }
+        
     }
     
 
