@@ -36,7 +36,7 @@ npm build:my
 
 # 生成 bundle 分析报告
 npm run build --report
-```
+
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
@@ -62,6 +62,9 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
  跳转不带tab的页面还是用redirectTo或者navigateTo
  
  作为组件时候需要学main.js 但不需要挂载
+
+#第三天：动态获取列表数据
+
 
 
  
