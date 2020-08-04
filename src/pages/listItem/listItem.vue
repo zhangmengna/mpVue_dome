@@ -1,29 +1,31 @@
 <template>
     <div class="itemContainer">
         <div class="userDate">
-            <img src="/static/avatar/0.png" alt="">
-            <span>2020.01.21</span>
+            <img :src='item.avatar' alt="">
+            <span>{{item.date}}</span>
         </div>
         <p class="movieName">龙猫</p>
-        <img src="/static/detail/swiper/04.jpg" alt="">
-        <div class="comment">为了方便妻子草壁靖子养病，草壁达郎决定带着两个女儿草壁皋月和草壁梅搬到草壁靖子所在疗养院附近的乡下，父女三人入住了一间年久失修的老房子。小姐妹俩很快发现看似平凡无奇的乡下有很多神奇的事物，无人居住的房屋里能聚能散还能飞的“煤灰”、森林里的小精灵、森林的主人龙猫和笑口常开的猫巴士。</div>
+        <img :src="item.detail_img" alt="">
+        <div class="comment">{{item.detail_content}}</div>
         <div class="getLove">
-            <img src="/static/icon/star.png" alt="">
-            <span>10w</span>
-            <img src="/static/icon/view.png" alt="">
-            <span>100w</span>
+            <img :src='item.detail_love_image1' alt="">
+            <span>{{item.love_count}}</span>
+            <img :src="item.detail_love_image2" alt="">
+            <span>{{item.attention_count}}</span>
         </div>
     </div>
 </template>
 <script>
 export default {
-    
+    props:['item'],
 }
 </script>
 <style scoped>
     .itemContainer{
-        padding-bottom: 10rpx;
-        border-bottom: 1rpx solid #333
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1rpx solid #eee;
+        margin-bottom: 10rpx;
     }
     .itemContainer .userDate{
         padding: 10rpx 20rpx;

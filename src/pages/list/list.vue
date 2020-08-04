@@ -16,7 +16,7 @@
         </swiper>
         <!-- 一个评论列表 -->
         <div>
-            <ListItme/>
+            <ListItme v-for="(item,index) in listInfo" :key='item.postId' :item='item'/>
         </div>
         
     </div>
@@ -24,8 +24,16 @@
 </template>
 
 <script>
+ import { mapState } from 'vuex'
  import ListItme from '../listItem/listItem.vue'
  export default {
+     beforeMount(){
+         this.$store.dispatch('getListInfo')
+     },
+
+     computed:{
+         ...mapState(['listInfo'])
+     },
      components:  {ListItme},
  }
 </script>
