@@ -65,6 +65,9 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 #第三天：动态获取列表数据
 
+#第四天：列表页面详情的显示，收藏，音乐的播放
+ 问题：目前音乐还未播放，音乐连接未下载（之后完善）
+
 
 
  

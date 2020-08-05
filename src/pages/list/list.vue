@@ -16,7 +16,7 @@
         </swiper>
         <!-- 一个评论列表 -->
         <div>
-            <ListItme v-for="(item,index) in listInfo" :key='item.postId' :item='item'/>
+            <ListItme v-for="(item,index) in listInfo" :key='index' :item='item' :index='index'/>
         </div>
         
     </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="itemContainer">
+    <div @tap='toDeatil' class="itemContainer">
         <div class="userDate">
             <img :src='item.avatar' alt="">
             <span>{{item.date}}</span>
@@ -17,7 +17,14 @@
 </template>
 <script>
 export default {
-    props:['item'],
+    props:['item','index'],
+    methods: {
+        toDeatil(){
+            wx.navigateTo({
+                url:'/pages/detail/main?index='+this.index
+            })
+        }
+    }
 }
 </script>
 <style scoped>
