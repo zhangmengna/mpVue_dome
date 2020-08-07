@@ -41,7 +41,7 @@ npm run build --report
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 #src-dome为脚手架初始化创建的文件
-##第一天 首页 用户的授权及信息的获取
+# 一 首页 用户的授权及信息的获取
 1.每个vue页面必须配置一个js文件，将vue文件挂载
   import Vue from 'vue'
  import Index from './index.vue'
@@ -55,7 +55,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
    bind + tap 冒泡事件
    catch + tap 非冒泡事件
 
-#第二天：列表页面
+#二：列表页面
 
 ##注意switchTab只能跳转到带有tab的页面，
   不能跳转到不带tab的页面,
@@ -63,10 +63,14 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
  
  作为组件时候需要学main.js 但不需要挂载
 
-#第三天：动态获取列表数据
+#三：动态获取列表数据
 
-#第四天：列表页面详情的显示，收藏，音乐的播放
- 问题：目前音乐还未播放，音乐连接未下载（之后完善）
+#四：列表页面详情的显示，收藏，音乐的播放
+ ##问题：目前音乐还未播放，音乐连接未下载（之后完善）
+
+#五：配导航图标，电影列表页面动态展示
+ ##问题总结：1小程序不支持xhr请求，这里使用了fylio发送请求
+ ##2小程序对http请求会报异常，支持使用https请求
 
 
 
