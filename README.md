@@ -72,6 +72,8 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
  ##问题总结：1小程序不支持xhr请求，这里使用了fylio发送请求
  ##2小程序对http请求会报异常，支持使用https请求
 
+#六：电影详情页面，展示
+
 
 
  
