@@ -6,18 +6,20 @@
         <div class="userDate">
             <img :src='dataObj.avatar' alt="">
             <span>{{dataObj.author}}</span>
-            <span>发布于</span>
+            <span> 发布于 </span>
             <span>{{dataObj.date}}</span>
         </div>
-        <p class="movieName">龙猫简介</p>
+        <p class="movieName">{{dataObj.title}}简介</p>
         <div class='do_container'>
             <div class="collect_share">
                <img @tap='handleCollection' :src="isCollected?'/static/icon/collection.png':'/static/icon/collection-anti.png'" alt="">
-               <img src="/static/icon/share-anti.png" alt=""> 
+               <img @tap='handleShare' src="/static/icon/share-anti.png" alt=""> 
             </div>            
             <div class="line"></div>
         </div>
-        <Button>转发此文</Button>  
+        <Button open-type="share">转发此文</Button>  
+        <p class="content">{{dataObj.detail}}</p>
+        <p class="content">{{dataObj.detail1}}</p>
         <p class="content">{{dataObj.detail_content}}</p>
     </div>
 </template>
@@ -100,6 +102,13 @@ export default {
             }else{
                 wx.getBackgroundAudioManager()
             }
+        },
+        handleShare(){
+            wx.showActionSheet({
+                itemList:[
+                    '分享到朋友圈','分享到微博','分享给微信好友'
+                ]
+            })
         }
     }
 }
@@ -108,6 +117,7 @@ export default {
     .detail_container{
         display: flex;
         flex-direction:column;
+        margin-bottom: 20rpx;
     }
     .detail_container .detail_img{
         width: 100%;
@@ -164,5 +174,6 @@ export default {
         font-size: 28rpx;
         text-indent: 56rpx;
         letter-spacing: 5rpx;
+        padding: 10rpx;
     }
 </style>

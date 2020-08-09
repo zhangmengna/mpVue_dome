@@ -25,11 +25,10 @@ export default {
         this.$fly.get(MOVIE_URL)
         .then((res)=>{
             let moviesArr = res.data.subjects
-            console.log(moviesArr)
+            // console.log(moviesArr)
             this.$store.dispatch('getMoviesArr',moviesArr)
             this.moviesArr = moviesArr
-        })
-        .catch((err)=>{
+        }).catch((err)=>{
             console.log(err)
         })
         

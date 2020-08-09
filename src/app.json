@@ -1,10 +1,10 @@
 {
-    "pages":[        
-        "pages/movies/main",
-        "pages/movieDetail/main",
+    "pages":[
+        "pages/index/main",
         "pages/list/main",
-        "pages/detail/main",        
-        "pages/index/main"
+        "pages/detail/main", 
+        "pages/movies/main",
+        "pages/movieDetail/main"
     ],
     "window":{
         "navigationBarBackgroundColor": "#489B81"

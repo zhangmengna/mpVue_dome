@@ -1,10 +1,10 @@
-import { RECEIVE_LIST, RECEIVE_MOVIES } from './mutations-type'
+import { RECEIVE_LIST, MOVIES_ARR } from './mutations-type'
 
 export default {
     [RECEIVE_LIST](state, {list_data}){
         state.listInfo = list_data
     },
-    [RECEIVE_MOVIES](state, {moviesArr}){
-        state.moviesArr = moviesArr
+    [MOVIES_ARR](state, data){
+        state.moviesArr = data
     },
 }

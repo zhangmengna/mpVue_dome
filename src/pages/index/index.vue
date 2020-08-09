@@ -6,8 +6,7 @@
         <div @tap="toDetail" class="goDetail">
             <p>开始小程序之旅</p>           
         </div>
-    </div>
-    
+    </div>    
 </template>
 <script>
     export default{
@@ -45,7 +44,7 @@
             },
             toDetail(){
                 console.log('toDetail')
-                wx.navigateTo({
+                wx.switchTab({
                     url:'/pages/list/main'
                 })
             }

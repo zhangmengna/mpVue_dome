@@ -4,7 +4,7 @@
             <img :src='item.avatar' alt="">
             <span>{{item.date}}</span>
         </div>
-        <p class="movieName">龙猫</p>
+        <p class="movieName">{{item.title}}</p>
         <img :src="item.detail_img" alt="">
         <div class="comment">{{item.detail_content}}</div>
         <div class="getLove">
@@ -60,6 +60,7 @@ export default {
         font-size: 28rpx;
         text-indent: 56rpx;
         letter-spacing: 5rpx;
+        padding: 10rpx;
     }
     .itemContainer .getLove{
         padding: 10rpx;
